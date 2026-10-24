@@ -1,3 +1,4 @@
+
 #   Copyright 2025 - 2026 The PyMC Labs Developers
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
@@ -312,3 +313,5 @@ class TestResidualNameCollision:
         sets = adjustment_sets(g, "T", "Y")
         assert {"_u_resid_0"} in sets
         assert is_identifiable(g, "T", "Y")
+
+
