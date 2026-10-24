@@ -1499,7 +1499,12 @@ class PathModel:
         """
         self._require_data("test_implications")
         assert self._data is not None
-        indeps = self.implied_independences()
+        observed_columns = set(self._data.columns)
+        indeps = [
+            ci
+            for ci in self.implied_independences()
+            if {ci.x, ci.y, *ci.conditioning_set} <= observed_columns
+        ]
         return _test_implications(
             indeps,
             self._data,
